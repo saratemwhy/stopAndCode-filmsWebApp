@@ -1,0 +1,24 @@
+<nav class="navbar bg-dark">
+  <div class="container-fluid d-flex justify-content-center">
+    <form [formGroup]="formMovie" class="d-flex w-50 p-2" role="search" (ngSubmit)="onSubmit()">
+      <input class="form-control me-2" formControlName="inputMovie" id="inputMovie" name="inputMovie" type="search" placeholder="Enter movies, series, episode name">
+      <button class="btn btn-outline-light" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+@if (shows.length > 0){
+  @for (show of shows; track $index) {
+    <div class="d-inline-flex m-2 justify-content-center">
+      <div class="card">
+        <img [src]="show.show.image.medium" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">{{show.show.name}}</h5>
+          <a [routerLink]="['detail', show.show.id]" class="btn btn-primary">movie</a>
+        </div>
+      </div>
+    </div>
+  }
+}
+
+
